@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>bai_code.html</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<meta name="generator" content="SynEdit HTML exporter" />
+<style type="text/css">
+<!--
+body { color: #000000; background-color: #FFFFFF; }
+.cpp1-assembler { color: #0000FF; }
+.cpp1-character { color: #000000; }
+.cpp1-comment { color: #0078D7; font-style: italic; }
+.cpp1-float { color: #800080; }
+.cpp1-hexadecimal { color: #800080; }
+.cpp1-identifier { color: #000000; }
+.cpp1-illegalchar { color: #000000; }
+.cpp1-number { color: #800080; }
+.cpp1-octal { color: #800080; }
+.cpp1-preprocessor { color: #008000; }
+.cpp1-reservedword { color: #000000; font-weight: bold; }
+.cpp1-space { background-color: #FFFFFF; color: #000000; }
+.cpp1-string { color: #0000FF; font-weight: bold; }
+.cpp1-symbol { color: #FF0000; font-weight: bold; }
+-->
+</style>
+</head>
+<body>
+<pre>
+<code><span style="font: 10pt Consolas;"><span class="cpp1-preprocessor">#include&lt;stdio.h&gt;
+#include&lt;String.h&gt;
+</span><span class="cpp1-space">   </span><span class="cpp1-reservedword">struct</span><span class="cpp1-space"> SinhVien</span><span class="cpp1-symbol">{
+</span><span class="cpp1-space">   	     </span><span class="cpp1-reservedword">char</span><span class="cpp1-space"> msv</span><span class="cpp1-symbol">[</span><span class="cpp1-number">15</span><span class="cpp1-symbol">],</span><span class="cpp1-identifier">tensv</span><span class="cpp1-symbol">[</span><span class="cpp1-number">12</span><span class="cpp1-symbol">],</span><span class="cpp1-identifier">lop</span><span class="cpp1-symbol">[</span><span class="cpp1-number">5</span><span class="cpp1-symbol">];
+</span><span class="cpp1-space">   	     </span><span class="cpp1-reservedword">float</span><span class="cpp1-space"> dtb</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space">   </span><span class="cpp1-symbol">};
+</span><span class="cpp1-space">   </span><span class="cpp1-reservedword">struct</span><span class="cpp1-space"> Node_BnTr</span><span class="cpp1-symbol">{
+</span><span class="cpp1-space">   	  SinhVien data</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space">   	  Node_BnTr </span><span class="cpp1-symbol">*</span><span class="cpp1-identifier">Adr_TrL</span><span class="cpp1-symbol">,*</span><span class="cpp1-identifier">Adr_TrR</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space">   </span><span class="cpp1-symbol">};
+</span><span class="cpp1-identifier">Node_BnTr</span><span class="cpp1-symbol">*</span><span class="cpp1-identifier">Add_Node</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">Node_BnTr</span><span class="cpp1-symbol">*</span><span class="cpp1-identifier">Tr</span><span class="cpp1-symbol">,</span><span class="cpp1-identifier">Node_BnTr</span><span class="cpp1-symbol">*</span><span class="cpp1-identifier">node</span><span class="cpp1-symbol">)
+{
+</span><span class="cpp1-space">	Node_BnTr</span><span class="cpp1-symbol">*</span><span class="cpp1-identifier">tmp</span><span class="cpp1-symbol">,*</span><span class="cpp1-identifier">TMP</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space">	</span><span class="cpp1-reservedword">if</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">Tr</span><span class="cpp1-symbol">==</span><span class="cpp1-identifier">NULL</span><span class="cpp1-symbol">)
+</span><span class="cpp1-space">	  Tr</span><span class="cpp1-symbol">=</span><span class="cpp1-identifier">node</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space">	</span><span class="cpp1-reservedword">else
+</span><span class="cpp1-space">	</span><span class="cpp1-symbol">{
+</span><span class="cpp1-space">	  tmp</span><span class="cpp1-symbol">=</span><span class="cpp1-identifier">Tr</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space">	  </span><span class="cpp1-reservedword">while</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">tmp</span><span class="cpp1-symbol">!=</span><span class="cpp1-identifier">NULL</span><span class="cpp1-symbol">)
+</span><span class="cpp1-space">	  </span><span class="cpp1-symbol">{
+</span><span class="cpp1-space">	  	TMP</span><span class="cpp1-symbol">=</span><span class="cpp1-identifier">tmp</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space">	  	</span><span class="cpp1-reservedword">if</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">tmp</span><span class="cpp1-symbol">-&gt;</span><span class="cpp1-identifier">data</span><span class="cpp1-symbol">.</span><span class="cpp1-identifier">dtb</span><span class="cpp1-symbol">&gt;</span><span class="cpp1-identifier">node</span><span class="cpp1-symbol">-&gt;</span><span class="cpp1-identifier">data</span><span class="cpp1-symbol">.</span><span class="cpp1-identifier">dtb</span><span class="cpp1-symbol">)
+</span><span class="cpp1-space">	  	    tmp</span><span class="cpp1-symbol">=</span><span class="cpp1-identifier">tmp</span><span class="cpp1-symbol">-&gt;</span><span class="cpp1-identifier">Adr_TrL</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space">	  	</span><span class="cpp1-reservedword">else
+</span><span class="cpp1-space">	  	    tmp</span><span class="cpp1-symbol">=</span><span class="cpp1-identifier">tmp</span><span class="cpp1-symbol">-&gt;</span><span class="cpp1-identifier">Adr_TrR</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space">	  </span><span class="cpp1-symbol">}
+</span><span class="cpp1-space">	  </span><span class="cpp1-reservedword">if</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">TMP</span><span class="cpp1-symbol">-&gt;</span><span class="cpp1-identifier">data</span><span class="cpp1-symbol">.</span><span class="cpp1-identifier">dtb</span><span class="cpp1-symbol">&gt;</span><span class="cpp1-identifier">node</span><span class="cpp1-symbol">-&gt;</span><span class="cpp1-identifier">data</span><span class="cpp1-symbol">.</span><span class="cpp1-identifier">dtb</span><span class="cpp1-symbol">)
+</span><span class="cpp1-space">	     TMP</span><span class="cpp1-symbol">-&gt;</span><span class="cpp1-identifier">Adr_TrL</span><span class="cpp1-symbol">=</span><span class="cpp1-identifier">node</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space">	  </span><span class="cpp1-reservedword">else
+</span><span class="cpp1-space">	     TMP</span><span class="cpp1-symbol">-&gt;</span><span class="cpp1-identifier">Adr_TrR</span><span class="cpp1-symbol">=</span><span class="cpp1-identifier">node</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space">	</span><span class="cpp1-symbol">}
+</span><span class="cpp1-space">	</span><span class="cpp1-reservedword">return</span><span class="cpp1-space"> Tr</span><span class="cpp1-symbol">;</span><span class="cpp1-space">	     
+</span><span class="cpp1-symbol">}
+</span><span class="cpp1-identifier">Node_BnTr</span><span class="cpp1-symbol">*</span><span class="cpp1-identifier">Input</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">Node_BnTr</span><span class="cpp1-symbol">*</span><span class="cpp1-identifier">Tr</span><span class="cpp1-symbol">)
+{
+</span><span class="cpp1-space">	Node_BnTr</span><span class="cpp1-symbol">*</span><span class="cpp1-identifier">p</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space">	</span><span class="cpp1-reservedword">int</span><span class="cpp1-space"> n</span><span class="cpp1-symbol">,</span><span class="cpp1-identifier">i</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space">	printf</span><span class="cpp1-symbol">(</span><span class="cpp1-string">&quot;Nhap so sinh vien  : &quot;</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space">	scanf</span><span class="cpp1-symbol">(</span><span class="cpp1-string">&quot;%d&quot;</span><span class="cpp1-symbol">,&amp;</span><span class="cpp1-identifier">n</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space">	</span><span class="cpp1-reservedword">for</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">i</span><span class="cpp1-symbol">=</span><span class="cpp1-number">1</span><span class="cpp1-symbol">;</span><span class="cpp1-identifier">i</span><span class="cpp1-symbol">&lt;=</span><span class="cpp1-identifier">n</span><span class="cpp1-symbol">;</span><span class="cpp1-identifier">i</span><span class="cpp1-symbol">++)
+</span><span class="cpp1-space">	</span><span class="cpp1-symbol">{
+</span><span class="cpp1-space">		p</span><span class="cpp1-symbol">=</span><span class="cpp1-reservedword">new</span><span class="cpp1-space"> Node_BnTr</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space">		printf</span><span class="cpp1-symbol">(</span><span class="cpp1-string">&quot;Nhap thong tin sv : &quot;</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space">		printf</span><span class="cpp1-symbol">(</span><span class="cpp1-string">&quot;\n Nhap ma sinh vien : &quot;</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space">		fflush</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">stdin</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space">		gets</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">p</span><span class="cpp1-symbol">-&gt;</span><span class="cpp1-identifier">data</span><span class="cpp1-symbol">.</span><span class="cpp1-identifier">msv</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space">		printf</span><span class="cpp1-symbol">(</span><span class="cpp1-string">&quot;\n Nhap ho ten sinh vien : &quot;</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space">		gets</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">p</span><span class="cpp1-symbol">-&gt;</span><span class="cpp1-identifier">data</span><span class="cpp1-symbol">.</span><span class="cpp1-identifier">tensv</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space">		printf</span><span class="cpp1-symbol">(</span><span class="cpp1-string">&quot;\n Nhap lop cua sinh vien : &quot;</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space">		gets</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">p</span><span class="cpp1-symbol">-&gt;</span><span class="cpp1-identifier">data</span><span class="cpp1-symbol">.</span><span class="cpp1-identifier">lop</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space">		printf</span><span class="cpp1-symbol">(</span><span class="cpp1-string">&quot;\n Nhap diem trung binh : &quot;</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space">		scanf</span><span class="cpp1-symbol">(</span><span class="cpp1-string">&quot;%f&quot;</span><span class="cpp1-symbol">,&amp;</span><span class="cpp1-identifier">p</span><span class="cpp1-symbol">-&gt;</span><span class="cpp1-identifier">data</span><span class="cpp1-symbol">.</span><span class="cpp1-identifier">dtb</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space">		p</span><span class="cpp1-symbol">-&gt;</span><span class="cpp1-identifier">Adr_TrL</span><span class="cpp1-symbol">=</span><span class="cpp1-identifier">NULL</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space">		p</span><span class="cpp1-symbol">-&gt;</span><span class="cpp1-identifier">Adr_TrR</span><span class="cpp1-symbol">=</span><span class="cpp1-identifier">NULL</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space">		Tr</span><span class="cpp1-symbol">=</span><span class="cpp1-identifier">Add_Node</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">Tr</span><span class="cpp1-symbol">,</span><span class="cpp1-identifier">p</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space">	</span><span class="cpp1-symbol">}
+</span><span class="cpp1-space">	</span><span class="cpp1-reservedword">return</span><span class="cpp1-space"> Tr</span><span class="cpp1-symbol">;
+}
+</span><span class="cpp1-reservedword">void</span><span class="cpp1-space"> Out</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">Node_BnTr</span><span class="cpp1-symbol">*</span><span class="cpp1-identifier">Tr</span><span class="cpp1-symbol">)
+{
+</span><span class="cpp1-space">	</span><span class="cpp1-reservedword">if</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">Tr</span><span class="cpp1-symbol">!=</span><span class="cpp1-identifier">NULL</span><span class="cpp1-symbol">)
+</span><span class="cpp1-space">	</span><span class="cpp1-symbol">{
+</span><span class="cpp1-space">		Out</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">Tr</span><span class="cpp1-symbol">-&gt;</span><span class="cpp1-identifier">Adr_TrL</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space">		printf</span><span class="cpp1-symbol">(</span><span class="cpp1-string">&quot; %15s || %12s || %5s || %0.2f \n&quot;</span><span class="cpp1-symbol">,</span><span class="cpp1-identifier">Tr</span><span class="cpp1-symbol">-&gt;</span><span class="cpp1-identifier">data</span><span class="cpp1-symbol">.</span><span class="cpp1-identifier">msv</span><span class="cpp1-symbol">,</span><span class="cpp1-identifier">Tr</span><span class="cpp1-symbol">-&gt;</span><span class="cpp1-identifier">data</span><span class="cpp1-symbol">.</span><span class="cpp1-identifier">tensv</span><span class="cpp1-symbol">,</span><span class="cpp1-identifier">Tr</span><span class="cpp1-symbol">-&gt;</span><span class="cpp1-identifier">data</span><span class="cpp1-symbol">.</span><span class="cpp1-identifier">lop</span><span class="cpp1-symbol">,</span><span class="cpp1-identifier">Tr</span><span class="cpp1-symbol">-&gt;</span><span class="cpp1-identifier">data</span><span class="cpp1-symbol">.</span><span class="cpp1-identifier">dtb</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space">		Out</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">Tr</span><span class="cpp1-symbol">-&gt;</span><span class="cpp1-identifier">Adr_TrR</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space">	</span><span class="cpp1-symbol">}
+}
+</span><span class="cpp1-reservedword">void</span><span class="cpp1-space"> Outdtb</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">Node_BnTr</span><span class="cpp1-symbol">*</span><span class="cpp1-identifier">Tr</span><span class="cpp1-symbol">)
+{
+</span><span class="cpp1-space">	</span><span class="cpp1-reservedword">if</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">Tr</span><span class="cpp1-symbol">!=</span><span class="cpp1-identifier">NULL</span><span class="cpp1-symbol">)
+</span><span class="cpp1-space">	</span><span class="cpp1-symbol">{
+</span><span class="cpp1-space">		Outdtb</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">Tr</span><span class="cpp1-symbol">-&gt;</span><span class="cpp1-identifier">Adr_TrL</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space">		</span><span class="cpp1-reservedword">if</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">Tr</span><span class="cpp1-symbol">-&gt;</span><span class="cpp1-identifier">data</span><span class="cpp1-symbol">.</span><span class="cpp1-identifier">dtb</span><span class="cpp1-symbol">&gt;</span><span class="cpp1-float">5.5</span><span class="cpp1-symbol">)
+</span><span class="cpp1-space">		    printf</span><span class="cpp1-symbol">(</span><span class="cpp1-string">&quot; %15s || %12s || %5s || %0.2f \n&quot;</span><span class="cpp1-symbol">,</span><span class="cpp1-identifier">Tr</span><span class="cpp1-symbol">-&gt;</span><span class="cpp1-identifier">data</span><span class="cpp1-symbol">.</span><span class="cpp1-identifier">msv</span><span class="cpp1-symbol">,</span><span class="cpp1-identifier">Tr</span><span class="cpp1-symbol">-&gt;</span><span class="cpp1-identifier">data</span><span class="cpp1-symbol">.</span><span class="cpp1-identifier">tensv</span><span class="cpp1-symbol">,</span><span class="cpp1-identifier">Tr</span><span class="cpp1-symbol">-&gt;</span><span class="cpp1-identifier">data</span><span class="cpp1-symbol">.</span><span class="cpp1-identifier">lop</span><span class="cpp1-symbol">,</span><span class="cpp1-identifier">Tr</span><span class="cpp1-symbol">-&gt;</span><span class="cpp1-identifier">data</span><span class="cpp1-symbol">.</span><span class="cpp1-identifier">dtb</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space">		Outdtb</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">Tr</span><span class="cpp1-symbol">-&gt;</span><span class="cpp1-identifier">Adr_TrR</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space">	</span><span class="cpp1-symbol">}
+}
+</span><span class="cpp1-reservedword">int</span><span class="cpp1-space"> Demdtb</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">Node_BnTr</span><span class="cpp1-symbol">*</span><span class="cpp1-identifier">Tr</span><span class="cpp1-symbol">)
+{
+</span><span class="cpp1-space">	</span><span class="cpp1-reservedword">if</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">Tr</span><span class="cpp1-symbol">==</span><span class="cpp1-identifier">NULL</span><span class="cpp1-symbol">)
+</span><span class="cpp1-space">	  </span><span class="cpp1-reservedword">return</span><span class="cpp1-space"> </span><span class="cpp1-number">0</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space">	</span><span class="cpp1-reservedword">if</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">Tr</span><span class="cpp1-symbol">-&gt;</span><span class="cpp1-identifier">data</span><span class="cpp1-symbol">.</span><span class="cpp1-identifier">dtb</span><span class="cpp1-symbol">&gt;</span><span class="cpp1-float">5.5</span><span class="cpp1-symbol">)
+</span><span class="cpp1-space">	  </span><span class="cpp1-reservedword">return</span><span class="cpp1-space"> </span><span class="cpp1-number">1</span><span class="cpp1-symbol">+</span><span class="cpp1-identifier">Demdtb</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">Tr</span><span class="cpp1-symbol">-&gt;</span><span class="cpp1-identifier">Adr_TrL</span><span class="cpp1-symbol">)</span><span class="cpp1-space"> </span><span class="cpp1-symbol">+</span><span class="cpp1-space"> Demdtb</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">Tr</span><span class="cpp1-symbol">-&gt;</span><span class="cpp1-identifier">Adr_TrR</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space">	</span><span class="cpp1-reservedword">else
+</span><span class="cpp1-space">	  </span><span class="cpp1-reservedword">return</span><span class="cpp1-space"> Demdtb</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">Tr</span><span class="cpp1-symbol">-&gt;</span><span class="cpp1-identifier">Adr_TrL</span><span class="cpp1-symbol">)+</span><span class="cpp1-identifier">Demdtb</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">Tr</span><span class="cpp1-symbol">-&gt;</span><span class="cpp1-identifier">Adr_TrR</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space">	  
+</span><span class="cpp1-symbol">}
+</span><span class="cpp1-reservedword">int</span><span class="cpp1-space"> Dem</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">Node_BnTr</span><span class="cpp1-symbol">*</span><span class="cpp1-identifier">Tr</span><span class="cpp1-symbol">)
+{
+</span><span class="cpp1-space">	</span><span class="cpp1-reservedword">if</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">Tr</span><span class="cpp1-symbol">==</span><span class="cpp1-identifier">NULL</span><span class="cpp1-symbol">)
+</span><span class="cpp1-space">	  </span><span class="cpp1-reservedword">return</span><span class="cpp1-space"> </span><span class="cpp1-number">0</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space">	</span><span class="cpp1-reservedword">else
+</span><span class="cpp1-space">	  </span><span class="cpp1-reservedword">return</span><span class="cpp1-space"> </span><span class="cpp1-number">1</span><span class="cpp1-symbol">+</span><span class="cpp1-identifier">Dem</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">Tr</span><span class="cpp1-symbol">-&gt;</span><span class="cpp1-identifier">Adr_TrL</span><span class="cpp1-symbol">)</span><span class="cpp1-space"> </span><span class="cpp1-symbol">+</span><span class="cpp1-space"> Dem</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">Tr</span><span class="cpp1-symbol">-&gt;</span><span class="cpp1-identifier">Adr_TrR</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space">	  
+</span><span class="cpp1-symbol">}
+</span><span class="cpp1-identifier">Node_BnTr</span><span class="cpp1-symbol">*</span><span class="cpp1-identifier">Search</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">Node_BnTr</span><span class="cpp1-symbol">*</span><span class="cpp1-identifier">Tr</span><span class="cpp1-symbol">,</span><span class="cpp1-reservedword">float</span><span class="cpp1-space"> info</span><span class="cpp1-symbol">)
+{
+</span><span class="cpp1-space">	Node_BnTr</span><span class="cpp1-symbol">*</span><span class="cpp1-identifier">tmp</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space">	</span><span class="cpp1-reservedword">if</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">Tr</span><span class="cpp1-symbol">==</span><span class="cpp1-identifier">NULL</span><span class="cpp1-symbol">)
+</span><span class="cpp1-space">	   </span><span class="cpp1-reservedword">return</span><span class="cpp1-space"> NULL</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space">	</span><span class="cpp1-reservedword">else
+</span><span class="cpp1-space">	</span><span class="cpp1-symbol">{
+</span><span class="cpp1-space">		tmp</span><span class="cpp1-symbol">=</span><span class="cpp1-identifier">Tr</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space">		</span><span class="cpp1-reservedword">while</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">tmp</span><span class="cpp1-symbol">!=</span><span class="cpp1-identifier">NULL</span><span class="cpp1-symbol">&amp;&amp;</span><span class="cpp1-identifier">tmp</span><span class="cpp1-symbol">-&gt;</span><span class="cpp1-identifier">data</span><span class="cpp1-symbol">.</span><span class="cpp1-identifier">dtb</span><span class="cpp1-symbol">&gt;=</span><span class="cpp1-identifier">info</span><span class="cpp1-symbol">)
+</span><span class="cpp1-space">		</span><span class="cpp1-symbol">{
+</span><span class="cpp1-space">			</span><span class="cpp1-reservedword">if</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">tmp</span><span class="cpp1-symbol">-&gt;</span><span class="cpp1-identifier">data</span><span class="cpp1-symbol">.</span><span class="cpp1-identifier">dtb</span><span class="cpp1-symbol">&gt;</span><span class="cpp1-identifier">info</span><span class="cpp1-symbol">)
+</span><span class="cpp1-space">			   tmp</span><span class="cpp1-symbol">=</span><span class="cpp1-identifier">tmp</span><span class="cpp1-symbol">-&gt;</span><span class="cpp1-identifier">Adr_TrL</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space">			</span><span class="cpp1-reservedword">else
+</span><span class="cpp1-space">			   tmp</span><span class="cpp1-symbol">=</span><span class="cpp1-identifier">tmp</span><span class="cpp1-symbol">-&gt;</span><span class="cpp1-identifier">Adr_TrR</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space">		</span><span class="cpp1-symbol">}
+</span><span class="cpp1-space">		</span><span class="cpp1-reservedword">if</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">tmp</span><span class="cpp1-symbol">!=</span><span class="cpp1-identifier">NULL</span><span class="cpp1-symbol">&amp;&amp;</span><span class="cpp1-identifier">tmp</span><span class="cpp1-symbol">-&gt;</span><span class="cpp1-identifier">data</span><span class="cpp1-symbol">.</span><span class="cpp1-identifier">dtb</span><span class="cpp1-symbol">&lt;</span><span class="cpp1-float">5.5</span><span class="cpp1-symbol">)
+</span><span class="cpp1-space">		    </span><span class="cpp1-reservedword">return</span><span class="cpp1-space"> tmp</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space">		</span><span class="cpp1-reservedword">else
+</span><span class="cpp1-space">		    </span><span class="cpp1-reservedword">return</span><span class="cpp1-space"> NULL</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space">	</span><span class="cpp1-symbol">}
+}
+</span><span class="cpp1-identifier">Node_BnTr </span><span class="cpp1-symbol">*</span><span class="cpp1-identifier">Delete</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">Node_BnTr</span><span class="cpp1-symbol">*</span><span class="cpp1-identifier">Tr</span><span class="cpp1-symbol">,</span><span class="cpp1-reservedword">float</span><span class="cpp1-space"> info</span><span class="cpp1-symbol">)
+{
+</span><span class="cpp1-space">    Node_BnTr</span><span class="cpp1-symbol">*</span><span class="cpp1-identifier">tmp</span><span class="cpp1-symbol">,*</span><span class="cpp1-identifier">R</span><span class="cpp1-symbol">,*</span><span class="cpp1-identifier">t</span><span class="cpp1-symbol">,*</span><span class="cpp1-identifier">L</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space">	</span><span class="cpp1-reservedword">while</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">Search</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">Tr</span><span class="cpp1-symbol">,</span><span class="cpp1-identifier">info</span><span class="cpp1-symbol">)!=</span><span class="cpp1-identifier">NULL</span><span class="cpp1-symbol">)
+</span><span class="cpp1-space">	</span><span class="cpp1-symbol">{
+</span><span class="cpp1-space">		tmp</span><span class="cpp1-symbol">=</span><span class="cpp1-identifier">Search</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">Tr</span><span class="cpp1-symbol">,</span><span class="cpp1-identifier">info</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space">	    </span><span class="cpp1-reservedword">if</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">Tr</span><span class="cpp1-symbol">==</span><span class="cpp1-identifier">tmp</span><span class="cpp1-symbol">)
+</span><span class="cpp1-space">	    </span><span class="cpp1-symbol">{
+</span><span class="cpp1-space">	        </span><span class="cpp1-reservedword">if</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">tmp</span><span class="cpp1-symbol">-&gt;</span><span class="cpp1-identifier">Adr_TrL</span><span class="cpp1-symbol">!=</span><span class="cpp1-identifier">NULL</span><span class="cpp1-symbol">)
+</span><span class="cpp1-space">	        </span><span class="cpp1-symbol">{
+</span><span class="cpp1-space">	      		R</span><span class="cpp1-symbol">=</span><span class="cpp1-identifier">Tr</span><span class="cpp1-symbol">-&gt;</span><span class="cpp1-identifier">Adr_TrR</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space">				Tr</span><span class="cpp1-symbol">=</span><span class="cpp1-identifier">Tr</span><span class="cpp1-symbol">-&gt;</span><span class="cpp1-identifier">Adr_TrL</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space">				tmp</span><span class="cpp1-symbol">-&gt;</span><span class="cpp1-identifier">Adr_TrL</span><span class="cpp1-symbol">=</span><span class="cpp1-identifier">NULL</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space">				tmp</span><span class="cpp1-symbol">-&gt;</span><span class="cpp1-identifier">Adr_TrR</span><span class="cpp1-symbol">=</span><span class="cpp1-identifier">NULL</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space">				tmp</span><span class="cpp1-symbol">=</span><span class="cpp1-identifier">Tr</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space">				</span><span class="cpp1-reservedword">while</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">tmp</span><span class="cpp1-symbol">-&gt;</span><span class="cpp1-identifier">Adr_TrR</span><span class="cpp1-symbol">!=</span><span class="cpp1-identifier">NULL</span><span class="cpp1-symbol">)
+</span><span class="cpp1-space">			    	tmp</span><span class="cpp1-symbol">=</span><span class="cpp1-identifier">tmp</span><span class="cpp1-symbol">-&gt;</span><span class="cpp1-identifier">Adr_TrR</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space">				tmp</span><span class="cpp1-symbol">-&gt;</span><span class="cpp1-identifier">Adr_TrR</span><span class="cpp1-symbol">=</span><span class="cpp1-identifier">R</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space">		    </span><span class="cpp1-symbol">}
+</span><span class="cpp1-space">		    </span><span class="cpp1-reservedword">else
+</span><span class="cpp1-space">		    </span><span class="cpp1-symbol">{
+</span><span class="cpp1-space">			   Tr</span><span class="cpp1-symbol">=</span><span class="cpp1-identifier">Tr</span><span class="cpp1-symbol">-&gt;</span><span class="cpp1-identifier">Adr_TrR</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space">			   tmp</span><span class="cpp1-symbol">-&gt;</span><span class="cpp1-identifier">Adr_TrR</span><span class="cpp1-symbol">=</span><span class="cpp1-identifier">NULL</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space">		    </span><span class="cpp1-symbol">}
+</span><span class="cpp1-space">		</span><span class="cpp1-symbol">}
+</span><span class="cpp1-space">		</span><span class="cpp1-reservedword">else
+</span><span class="cpp1-space">		</span><span class="cpp1-symbol">{
+</span><span class="cpp1-space">			t</span><span class="cpp1-symbol">=</span><span class="cpp1-identifier">Tr</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space">			</span><span class="cpp1-reservedword">while</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">t</span><span class="cpp1-symbol">-&gt;</span><span class="cpp1-identifier">Adr_TrR</span><span class="cpp1-symbol">!=</span><span class="cpp1-identifier">tmp</span><span class="cpp1-symbol">&amp;&amp;</span><span class="cpp1-identifier">t</span><span class="cpp1-symbol">-&gt;</span><span class="cpp1-identifier">Adr_TrL</span><span class="cpp1-symbol">!=</span><span class="cpp1-identifier">tmp</span><span class="cpp1-symbol">)
+</span><span class="cpp1-space">			</span><span class="cpp1-symbol">{
+</span><span class="cpp1-space">				</span><span class="cpp1-reservedword">if</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">t</span><span class="cpp1-symbol">-&gt;</span><span class="cpp1-identifier">data</span><span class="cpp1-symbol">.</span><span class="cpp1-identifier">dtb</span><span class="cpp1-symbol">&gt;</span><span class="cpp1-identifier">info</span><span class="cpp1-symbol">)
+</span><span class="cpp1-space">				   t</span><span class="cpp1-symbol">=</span><span class="cpp1-identifier">t</span><span class="cpp1-symbol">-&gt;</span><span class="cpp1-identifier">Adr_TrL</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space">				</span><span class="cpp1-reservedword">else
+</span><span class="cpp1-space">				   t</span><span class="cpp1-symbol">=</span><span class="cpp1-identifier">t</span><span class="cpp1-symbol">-&gt;</span><span class="cpp1-identifier">Adr_TrR</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space">			</span><span class="cpp1-symbol">}
+</span><span class="cpp1-space">			</span><span class="cpp1-reservedword">if</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">tmp</span><span class="cpp1-symbol">-&gt;</span><span class="cpp1-identifier">Adr_TrL</span><span class="cpp1-symbol">==</span><span class="cpp1-identifier">NULL</span><span class="cpp1-symbol">&amp;&amp;</span><span class="cpp1-identifier">tmp</span><span class="cpp1-symbol">-&gt;</span><span class="cpp1-identifier">Adr_TrR</span><span class="cpp1-symbol">==</span><span class="cpp1-identifier">NULL</span><span class="cpp1-symbol">)
+</span><span class="cpp1-space">			    </span><span class="cpp1-reservedword">if</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">t</span><span class="cpp1-symbol">-&gt;</span><span class="cpp1-identifier">Adr_TrR</span><span class="cpp1-symbol">==</span><span class="cpp1-identifier">tmp</span><span class="cpp1-symbol">)
+</span><span class="cpp1-space">			       t</span><span class="cpp1-symbol">-&gt;</span><span class="cpp1-identifier">Adr_TrR</span><span class="cpp1-symbol">=</span><span class="cpp1-identifier">NULL</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space">			    </span><span class="cpp1-reservedword">else
+</span><span class="cpp1-space">			        t</span><span class="cpp1-symbol">-&gt;</span><span class="cpp1-identifier">Adr_TrL</span><span class="cpp1-symbol">=</span><span class="cpp1-identifier">NULL</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space">			</span><span class="cpp1-reservedword">else
+</span><span class="cpp1-space">			    </span><span class="cpp1-reservedword">if</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">tmp</span><span class="cpp1-symbol">-&gt;</span><span class="cpp1-identifier">Adr_TrL</span><span class="cpp1-symbol">==</span><span class="cpp1-identifier">NULL</span><span class="cpp1-symbol">)
+</span><span class="cpp1-space">			    </span><span class="cpp1-symbol">{
+</span><span class="cpp1-space">			    	R</span><span class="cpp1-symbol">=</span><span class="cpp1-identifier">tmp</span><span class="cpp1-symbol">-&gt;</span><span class="cpp1-identifier">Adr_TrR</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space">					</span><span class="cpp1-reservedword">if</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">t</span><span class="cpp1-symbol">-&gt;</span><span class="cpp1-identifier">Adr_TrL</span><span class="cpp1-symbol">==</span><span class="cpp1-identifier">tmp</span><span class="cpp1-symbol">)
+</span><span class="cpp1-space">				   		t</span><span class="cpp1-symbol">-&gt;</span><span class="cpp1-identifier">Adr_TrL</span><span class="cpp1-symbol">=</span><span class="cpp1-identifier">R</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space">					</span><span class="cpp1-reservedword">else
+</span><span class="cpp1-space">				    	t</span><span class="cpp1-symbol">-&gt;</span><span class="cpp1-identifier">Adr_TrR</span><span class="cpp1-symbol">=</span><span class="cpp1-identifier">R</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space">					tmp</span><span class="cpp1-symbol">-&gt;</span><span class="cpp1-identifier">Adr_TrR</span><span class="cpp1-symbol">=</span><span class="cpp1-identifier">NULL</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space">				</span><span class="cpp1-symbol">}
+</span><span class="cpp1-space">				</span><span class="cpp1-reservedword">else
+</span><span class="cpp1-space">					</span><span class="cpp1-reservedword">if</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">tmp</span><span class="cpp1-symbol">-&gt;</span><span class="cpp1-identifier">Adr_TrR</span><span class="cpp1-symbol">==</span><span class="cpp1-identifier">NULL</span><span class="cpp1-symbol">)
+</span><span class="cpp1-space">					</span><span class="cpp1-symbol">{
+</span><span class="cpp1-space">						L</span><span class="cpp1-symbol">=</span><span class="cpp1-identifier">tmp</span><span class="cpp1-symbol">-&gt;</span><span class="cpp1-identifier">Adr_TrL</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space">						</span><span class="cpp1-reservedword">if</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">t</span><span class="cpp1-symbol">-&gt;</span><span class="cpp1-identifier">Adr_TrL</span><span class="cpp1-symbol">==</span><span class="cpp1-identifier">tmp</span><span class="cpp1-symbol">)
+</span><span class="cpp1-space">				    		t</span><span class="cpp1-symbol">-&gt;</span><span class="cpp1-identifier">Adr_TrL</span><span class="cpp1-symbol">=</span><span class="cpp1-identifier">L</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space">						</span><span class="cpp1-reservedword">else
+</span><span class="cpp1-space">				    		t</span><span class="cpp1-symbol">-&gt;</span><span class="cpp1-identifier">Adr_TrR</span><span class="cpp1-symbol">=</span><span class="cpp1-identifier">L</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space">						tmp</span><span class="cpp1-symbol">-&gt;</span><span class="cpp1-identifier">Adr_TrL</span><span class="cpp1-symbol">=</span><span class="cpp1-identifier">NULL</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space">					</span><span class="cpp1-symbol">}
+</span><span class="cpp1-space">					</span><span class="cpp1-reservedword">else
+</span><span class="cpp1-space">					</span><span class="cpp1-symbol">{
+</span><span class="cpp1-space">						</span><span class="cpp1-reservedword">if</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">t</span><span class="cpp1-symbol">-&gt;</span><span class="cpp1-identifier">Adr_TrL</span><span class="cpp1-symbol">==</span><span class="cpp1-identifier">tmp</span><span class="cpp1-symbol">)
+</span><span class="cpp1-space">						</span><span class="cpp1-symbol">{
+</span><span class="cpp1-space">							t</span><span class="cpp1-symbol">-&gt;</span><span class="cpp1-identifier">Adr_TrL</span><span class="cpp1-symbol">=</span><span class="cpp1-identifier">tmp</span><span class="cpp1-symbol">-&gt;</span><span class="cpp1-identifier">Adr_TrL</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space">							t</span><span class="cpp1-symbol">=</span><span class="cpp1-identifier">t</span><span class="cpp1-symbol">-&gt;</span><span class="cpp1-identifier">Adr_TrL</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space">						</span><span class="cpp1-symbol">}
+</span><span class="cpp1-space">						</span><span class="cpp1-reservedword">else
+</span><span class="cpp1-space">						</span><span class="cpp1-symbol">{
+</span><span class="cpp1-space">							t</span><span class="cpp1-symbol">-&gt;</span><span class="cpp1-identifier">Adr_TrR</span><span class="cpp1-symbol">=</span><span class="cpp1-identifier">tmp</span><span class="cpp1-symbol">-&gt;</span><span class="cpp1-identifier">Adr_TrL</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space">							t</span><span class="cpp1-symbol">=</span><span class="cpp1-identifier">t</span><span class="cpp1-symbol">-&gt;</span><span class="cpp1-identifier">Adr_TrR</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space">						</span><span class="cpp1-symbol">}
+</span><span class="cpp1-space">						</span><span class="cpp1-reservedword">while</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">t</span><span class="cpp1-symbol">-&gt;</span><span class="cpp1-identifier">Adr_TrR</span><span class="cpp1-symbol">!=</span><span class="cpp1-identifier">NULL</span><span class="cpp1-symbol">)
+</span><span class="cpp1-space">		            		t</span><span class="cpp1-symbol">=</span><span class="cpp1-identifier">t</span><span class="cpp1-symbol">-&gt;</span><span class="cpp1-identifier">Adr_TrR</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space">		       			t</span><span class="cpp1-symbol">-&gt;</span><span class="cpp1-identifier">Adr_TrR</span><span class="cpp1-symbol">=</span><span class="cpp1-identifier">tmp</span><span class="cpp1-symbol">-&gt;</span><span class="cpp1-identifier">Adr_TrR</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space">		        		tmp</span><span class="cpp1-symbol">-&gt;</span><span class="cpp1-identifier">Adr_TrR</span><span class="cpp1-symbol">=</span><span class="cpp1-identifier">NULL</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space">		        		tmp</span><span class="cpp1-symbol">-&gt;</span><span class="cpp1-identifier">Adr_TrL</span><span class="cpp1-symbol">=</span><span class="cpp1-identifier">NULL</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space">		        	</span><span class="cpp1-symbol">}
+</span><span class="cpp1-space">		</span><span class="cpp1-symbol">}
+</span><span class="cpp1-space">	</span><span class="cpp1-symbol">}
+</span><span class="cpp1-space">	</span><span class="cpp1-reservedword">return</span><span class="cpp1-space"> Tr</span><span class="cpp1-symbol">;
+}</span><span class="cpp1-space">	   
+main</span><span class="cpp1-symbol">()
+{
+</span><span class="cpp1-space">	</span><span class="cpp1-reservedword">int</span><span class="cpp1-space"> choice</span><span class="cpp1-symbol">,</span><span class="cpp1-identifier">dung</span><span class="cpp1-symbol">,</span><span class="cpp1-identifier">d</span><span class="cpp1-symbol">,</span><span class="cpp1-identifier">n</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space">	Node_BnTr</span><span class="cpp1-symbol">*</span><span class="cpp1-identifier">Tree</span><span class="cpp1-symbol">,*</span><span class="cpp1-identifier">p</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space">	Tree</span><span class="cpp1-symbol">=</span><span class="cpp1-identifier">NULL</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space">	Tree</span><span class="cpp1-symbol">=</span><span class="cpp1-identifier">Input</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">Tree</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space">	printf</span><span class="cpp1-symbol">(</span><span class="cpp1-string">&quot;\n Danh sach sinh vien ban dau trong cay T la : \n&quot;</span><span class="cpp1-space"> </span><span class="cpp1-symbol">);
+</span><span class="cpp1-space">	Out</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">Tree</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space">	printf</span><span class="cpp1-symbol">(</span><span class="cpp1-string">&quot;\n&quot;</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space">	d</span><span class="cpp1-symbol">=</span><span class="cpp1-identifier">Dem</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">Tree</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space">    </span><span class="cpp1-reservedword">while</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">dung</span><span class="cpp1-symbol">!=</span><span class="cpp1-number">1</span><span class="cpp1-symbol">)
+</span><span class="cpp1-space">    </span><span class="cpp1-symbol">{
+</span><span class="cpp1-space">    	printf</span><span class="cpp1-symbol">(</span><span class="cpp1-string">&quot;\n===============================================================&quot;</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space">    	printf</span><span class="cpp1-symbol">(</span><span class="cpp1-string">&quot;\n============================MENU===============================&quot;</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space">    	printf</span><span class="cpp1-symbol">(</span><span class="cpp1-string">&quot;\n===============================================================&quot;</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space">    	printf</span><span class="cpp1-symbol">(</span><span class="cpp1-string">&quot;\n ** 1.Bo sung sinh vien vao cay T *****************************&quot;</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space">    	printf</span><span class="cpp1-symbol">(</span><span class="cpp1-string">&quot;\n ** 2.Dem trong cay so sinh vien co diem trung binh tren 5,5 **&quot;</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space">    	printf</span><span class="cpp1-symbol">(</span><span class="cpp1-string">&quot;\n ** 3.In cay T cac sinh vien co diem trung binh tren 5,5 ******&quot;</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space">    	printf</span><span class="cpp1-symbol">(</span><span class="cpp1-string">&quot;\n ** 4.Xoa cay T cac sinh vien co diem trung binh duoi 5,5 *****&quot;</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space">    	printf</span><span class="cpp1-symbol">(</span><span class="cpp1-string">&quot;\n ** 5.Exits! **************************************************&quot;</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space">    	printf</span><span class="cpp1-symbol">(</span><span class="cpp1-string">&quot;\n **Moi lua chon choice 1---&gt;5 : &quot;</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space">    	scanf</span><span class="cpp1-symbol">(</span><span class="cpp1-string">&quot;%d&quot;</span><span class="cpp1-symbol">,&amp;</span><span class="cpp1-identifier">choice</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space">    	</span><span class="cpp1-reservedword">switch</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">choice</span><span class="cpp1-symbol">){
+</span><span class="cpp1-space">    		</span><span class="cpp1-reservedword">case</span><span class="cpp1-space"> </span><span class="cpp1-number">1</span><span class="cpp1-symbol">:</span><span class="cpp1-space">	
+    			p</span><span class="cpp1-symbol">=</span><span class="cpp1-reservedword">new</span><span class="cpp1-space"> Node_BnTr</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space">    			printf</span><span class="cpp1-symbol">(</span><span class="cpp1-string">&quot;Nhap thong tin sv : &quot;</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space">				printf</span><span class="cpp1-symbol">(</span><span class="cpp1-string">&quot;\n Nhap ma sinh vien : &quot;</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space">				fflush</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">stdin</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space">				gets</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">p</span><span class="cpp1-symbol">-&gt;</span><span class="cpp1-identifier">data</span><span class="cpp1-symbol">.</span><span class="cpp1-identifier">msv</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space">				printf</span><span class="cpp1-symbol">(</span><span class="cpp1-string">&quot;\n Nhap ho ten sinh vien : &quot;</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space">				gets</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">p</span><span class="cpp1-symbol">-&gt;</span><span class="cpp1-identifier">data</span><span class="cpp1-symbol">.</span><span class="cpp1-identifier">tensv</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space">				printf</span><span class="cpp1-symbol">(</span><span class="cpp1-string">&quot;\n Nhap lop cua sinh vien : &quot;</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space">				gets</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">p</span><span class="cpp1-symbol">-&gt;</span><span class="cpp1-identifier">data</span><span class="cpp1-symbol">.</span><span class="cpp1-identifier">lop</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space">				printf</span><span class="cpp1-symbol">(</span><span class="cpp1-string">&quot;\n Nhap diem trung binh : &quot;</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space">				scanf</span><span class="cpp1-symbol">(</span><span class="cpp1-string">&quot;%f&quot;</span><span class="cpp1-symbol">,&amp;</span><span class="cpp1-identifier">p</span><span class="cpp1-symbol">-&gt;</span><span class="cpp1-identifier">data</span><span class="cpp1-symbol">.</span><span class="cpp1-identifier">dtb</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space">				p</span><span class="cpp1-symbol">-&gt;</span><span class="cpp1-identifier">Adr_TrL</span><span class="cpp1-symbol">=</span><span class="cpp1-identifier">NULL</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space">				p</span><span class="cpp1-symbol">-&gt;</span><span class="cpp1-identifier">Adr_TrR</span><span class="cpp1-symbol">=</span><span class="cpp1-identifier">NULL</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space">				Tree</span><span class="cpp1-symbol">=</span><span class="cpp1-identifier">Add_Node</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">Tree</span><span class="cpp1-symbol">,</span><span class="cpp1-identifier">p</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space">    			printf</span><span class="cpp1-symbol">(</span><span class="cpp1-string">&quot;\n Danh sach sinh vien trong cay T sau khi bo sung sinh vien la : \n&quot;</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space">    			Out</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">Tree</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space">    			d</span><span class="cpp1-symbol">=</span><span class="cpp1-identifier">Dem</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">Tree</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space">			    </span><span class="cpp1-reservedword">break</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space">			</span><span class="cpp1-reservedword">case</span><span class="cpp1-space"> </span><span class="cpp1-number">2</span><span class="cpp1-symbol">:
+</span><span class="cpp1-space">			    printf</span><span class="cpp1-symbol">(</span><span class="cpp1-string">&quot;\n So sinh vien co dtb lon hon 5,5 trong cay T la : %d&quot;</span><span class="cpp1-symbol">,</span><span class="cpp1-identifier">Demdtb</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">Tree</span><span class="cpp1-symbol">));
+</span><span class="cpp1-space">			    </span><span class="cpp1-reservedword">break</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space">			</span><span class="cpp1-reservedword">case</span><span class="cpp1-space"> </span><span class="cpp1-number">3</span><span class="cpp1-symbol">:
+</span><span class="cpp1-space">				printf</span><span class="cpp1-symbol">(</span><span class="cpp1-string">&quot;\nDanh sach sinh vien co dtb lon hon 5,5 trong cay T la : \n&quot;</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space">				Outdtb</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">Tree</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space">			    </span><span class="cpp1-reservedword">break</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space">			</span><span class="cpp1-reservedword">case</span><span class="cpp1-space"> </span><span class="cpp1-number">4</span><span class="cpp1-symbol">:
+</span><span class="cpp1-space">				Tree</span><span class="cpp1-symbol">=</span><span class="cpp1-identifier">Delete</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">Tree</span><span class="cpp1-symbol">,</span><span class="cpp1-float">5.5</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space">				</span><span class="cpp1-reservedword">if</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">Dem</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">Tree</span><span class="cpp1-symbol">)&lt;</span><span class="cpp1-identifier">d</span><span class="cpp1-symbol">)
+</span><span class="cpp1-space">				</span><span class="cpp1-symbol">{
+</span><span class="cpp1-space">					printf</span><span class="cpp1-symbol">(</span><span class="cpp1-string">&quot;\nDanh sach sinh vien con lai sau khi xoa sv co dtb duoi 5,5 trong cay T la : \n&quot;</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space">					Out</span><span class="cpp1-symbol">(</span><span class="cpp1-identifier">Tree</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space">				</span><span class="cpp1-symbol">}
+</span><span class="cpp1-space">				</span><span class="cpp1-reservedword">else
+</span><span class="cpp1-space">				    printf</span><span class="cpp1-symbol">(</span><span class="cpp1-string">&quot;\n Trong cay T khong co sinh vien co dtb duoi 5,5 &quot;</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space">			    </span><span class="cpp1-reservedword">break</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space">			</span><span class="cpp1-reservedword">case</span><span class="cpp1-space"> </span><span class="cpp1-number">5</span><span class="cpp1-symbol">:
+</span><span class="cpp1-space">			    dung</span><span class="cpp1-symbol">=</span><span class="cpp1-number">1</span><span class="cpp1-symbol">;
+</span><span class="cpp1-space">			    printf</span><span class="cpp1-symbol">(</span><span class="cpp1-string">&quot;EXIT!&quot;</span><span class="cpp1-symbol">);
+</span><span class="cpp1-space">		</span><span class="cpp1-symbol">}
+</span><span class="cpp1-space">	</span><span class="cpp1-symbol">}
+}
+</span></span>
+</code></pre>
+<button>ahgsagh</button>
+</body>
+</html>
